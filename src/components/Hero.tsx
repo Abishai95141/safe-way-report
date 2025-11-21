@@ -4,6 +4,7 @@ import { FuzzyText } from "./FuzzyText";
 import { DecryptedText } from "./DecryptedText";
 import { StarBorder } from "./StarBorder";
 import profileImage from "@/assets/profile.png";
+import { Brain, Cpu, Network, Sparkles, Zap, Database, Code, Bot } from "lucide-react";
 const menuItems = [{
   label: "home",
   href: "#",
@@ -51,7 +52,48 @@ const menuItems = [{
   }
 }];
 export const Hero = () => {
+  const doodleIcons = [
+    { Icon: Brain, x: "10%", y: "20%", size: 32, rotation: -15, delay: 0 },
+    { Icon: Cpu, x: "85%", y: "15%", size: 28, rotation: 20, delay: 0.2 },
+    { Icon: Network, x: "15%", y: "70%", size: 36, rotation: 10, delay: 0.4 },
+    { Icon: Sparkles, x: "75%", y: "75%", size: 24, rotation: -20, delay: 0.6 },
+    { Icon: Zap, x: "5%", y: "45%", size: 30, rotation: 15, delay: 0.8 },
+    { Icon: Database, x: "90%", y: "50%", size: 32, rotation: -10, delay: 1 },
+    { Icon: Code, x: "20%", y: "85%", size: 28, rotation: 25, delay: 1.2 },
+    { Icon: Bot, x: "80%", y: "30%", size: 34, rotation: -25, delay: 1.4 },
+  ];
+
   return <div className="relative min-h-screen bg-background overflow-hidden">
+      {/* AI/ML Doodle Icons */}
+      {doodleIcons.map((doodle, index) => (
+        <motion.div
+          key={index}
+          className="absolute pointer-events-none opacity-[0.08]"
+          style={{ 
+            left: doodle.x, 
+            top: doodle.y,
+            rotate: doodle.rotation
+          }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ 
+            opacity: 0.08, 
+            scale: 1,
+            y: [0, -10, 0]
+          }}
+          transition={{ 
+            duration: 3,
+            delay: doodle.delay,
+            y: {
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }
+          }}
+        >
+          <doodle.Icon size={doodle.size} className="text-foreground" />
+        </motion.div>
+      ))}
+
       {/* Navigation */}
       <BubbleMenu logo={<span style={{
       fontWeight: 700
