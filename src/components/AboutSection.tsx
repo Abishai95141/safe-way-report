@@ -70,7 +70,7 @@ export const AboutSection = () => {
   }, []);
 
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 relative overflow-hidden -mt-[100vh] z-20 bg-background" ref={ref}>
+    <section id="about" className="py-12 sm:py-16 md:py-20 relative overflow-hidden md:-mt-[100vh] z-20 bg-background" ref={ref}>
       <div className="absolute top-0 right-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] rounded-full bg-primary/5 blur-[100px] sm:blur-[150px]" />
       
       <div ref={sectionRef} className="container mx-auto px-4 sm:px-6">
